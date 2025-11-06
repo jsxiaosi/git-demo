@@ -1,5 +1,15 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import { UserService } from './service/user/index.js';
+
+const getUser = async () => {
+  try {
+    const response = await UserService.getUserById(1);
+    console.log('User data:', response.data);
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+  }
+};
 </script>
 
 <template>
